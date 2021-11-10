@@ -29,13 +29,16 @@
     "serverless-webpack": "^5.5.5",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.4",
-    "webpack": "^5.63.0"
+    "webpack": "^5.63.0",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7"
   },
   "dependencies": {
     "@types/jest": "^27.0.2",
+    "@vendia/serverless-express": "^4.5.2",
     "dotenv": "^10.0.0",
-    "jest": "^27.3.1",
-    "ts-jest": "^27.0.7"
+    "express": "^4.17.1",
+    "source-map-support": "^0.5.20"
   },
   "watch": {
     "test": "{src,test}/*.ts"

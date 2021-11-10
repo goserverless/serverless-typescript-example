@@ -1,6 +1,8 @@
 ## Introduction
 
 This is a complete example serverless function using Typescript
+
+Folder structure:
 ```
 |-- config-env-for-serverless.js: config env variable for serverless
 |-- jest.config.js: jest config file for unit test
@@ -10,8 +12,11 @@ This is a complete example serverless function using Typescript
 |-- serverless.local.yml: serverless config file for local development (serverless offline, ...)
 |-- src
 |---- const: it includes some constant variables
-|---- middlewares: it includes middlewares
+|---- middlewares: it includes middlewares for you projects
+|---- routes: it includes your routes
+|---- services: it includes your services
 ```
+
 ## Setup
 
 ### 1. Install packages
@@ -32,12 +37,18 @@ npm run unit-test
 
 ### 4. Start the app in local (it will reload the server automatically if you change your code)
 ```
-npm run
+npm start
 ```
 
 ### 5. Run integration test local
 ```
 npm run integration-test
+```
+
+### 6. Run integration test after the project is deployed (dont run it in your local, it will be run in CI/CD):
+Basically, when the app is deployed, we will get a api url, the integration test will run to test the api url.
+```
+npm run ci-integration-test
 ```
 
 ### 6. Deploy

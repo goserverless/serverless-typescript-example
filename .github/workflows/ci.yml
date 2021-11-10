@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Build_And_Test:
+  Build_Test_And_Deploy:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -23,10 +23,11 @@ jobs:
       - run: echo "Install packages"
       - run: npm install
 
-      - run: echo "Run unit tests"
-      - run: npm run unit-test
-        env:
-          AUTH_KEY: ${{secrets.AUTH_KEY}}
+      - name: Create env file
+        run: |
+          cat << EOF > .env
+          AUTH_KEY=${{ secrets.AUTH_KEY }}
+          EOF
 
       - run: echo "Configure AWS Credentials"
       - name: Configure AWS Credentials

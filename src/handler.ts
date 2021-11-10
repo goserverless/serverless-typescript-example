@@ -1,21 +1,5 @@
-import auth from './middlewares/auth';
+import 'source-map-support/register';
+import serverlessExpress from '@vendia/serverless-express';
+import { app } from './app';
 
-export async function myExampleFunction(event: any) {
-  // This is simple authentication method based on request headers:
-
-  // if (!auth(event)) {
-  //   return {
-  //     statusCode: 403,
-  //     message: 'Unauthorized',
-  //   }
-  // }
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Your function executed successfully!',
-      event,
-    }, null, 2),
-  };
-
-  return response;
-}
+export const handler = serverlessExpress({ app });

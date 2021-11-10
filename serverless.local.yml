@@ -14,18 +14,16 @@ provider:
 
 functions:
   myFunc:
-    handler: src/handler.myExampleFunction
-    # environment:
-    #   AUTH_KEY: ${self:custom.envVars.AUTH_KEY}
+    handler: src/handler.handler
+    environment:
+      AUTH_KEY: ${self:custom.envVars.AUTH_KEY}
     events:
       - http:
-          path: mypath/{id}
-          method: get
-          cors: true
-          request:
-            parameters:
-              paths:
-                id: true
+         method: ANY
+         path: /
+      - http:
+         method: ANY
+         path: '{proxy+}'
 
 plugins:
   - serverless-offline
