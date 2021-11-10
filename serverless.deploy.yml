@@ -1,0 +1,39 @@
+
+service: my-service
+
+variablesResolutionMode: 20210326
+
+# package:
+#   individually: true
+
+provider:
+  name: aws
+  region: us-west-2
+  lambdaHashingVersion: 20201221
+  runtime: nodejs14.x
+
+functions:
+  myFunc:
+    handler: src/handler.myExampleFunction
+    # environment:
+    #   AUTH_KEY: ${self:custom.envVars.AUTH_KEY}
+    events:
+      - http:
+          path: mypath/{id}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+
+custom:
+  envVars: ${file(config-env-for-serverless.js)}
+  webpack:
+    webpackConfig: 'webpack.config.js' # Name of webpack configuration file
+    includeModules: false # Node modules configuration for packaging
+    packager: 'npm' # Packager that will be used to package your external modules
+    excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
+
+plugins:
+  - serverless-webpack
