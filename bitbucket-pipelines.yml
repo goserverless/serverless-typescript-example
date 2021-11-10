@@ -1,0 +1,23 @@
+image: bugb/buildimg:latest
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: "Build Test And Deploy"
+          caches:
+            - node
+          script:
+            - |
+              cat << EOF > .env
+              AUTH_KEY="$AUTH_KEY"
+              EOF
+              cat .env
+
+              npm i
+              npm run unit-test
+
+              npm run deploy | tee deploy.log
+
+              node scripts/newman/config-env.js  $(cat deploy.log | grep -o https.*)
+              npm run ci-integration-test
