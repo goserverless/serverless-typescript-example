@@ -34,4 +34,5 @@ custom:
     excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
 
 plugins:
+  - serverless-offline
   - serverless-webpack

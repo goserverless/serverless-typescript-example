@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "sls offline --config serverless.local.yml",
+    "dev": "sls offline",
     "start": "npm-watch dev",
-    "deploy": "npx rimraf .build && sls deploy --config serverless.deploy.yml",
+    "deploy": "npx rimraf .build && sls deploy",
     "lint": "eslint",
     "unit-test": "jest",
     "integration-test": "newman run postman-collections/Serverless_Example_Collection.postman_collection.json -e postman-collections/Serverless_Example_ENV.postman_environment.json",
