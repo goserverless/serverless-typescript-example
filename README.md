@@ -28,8 +28,10 @@ npm i
 ```
 cp .env.example .env
 ```
-And the modified the value for this file
+And the modified the values for this file.
 
+Please note: serverless offline (when you run the project offline) will automatically recognize `.env` file
+but to deploy the project successfully, you need to update all environment variables using `serverless.yml` file (section: `environment`)
 ### 3. Run unit test (using Jest)
 ```
 npm run unit-test
