@@ -8,8 +8,7 @@ Folder structure:
 |-- jest.config.js: jest config file for unit test
 |-- postman-collections: postman collections for this project, you can import them to Postman (includes some tests)
 |-- scripts: will include some helper scripts (using in CI/CD)
-|-- serverless.deploy.yml: serverless config file for CI/Cd
-|-- serverless.local.yml: serverless config file for local development (serverless offline, ...)
+|-- serverless.yml: serverless config file
 |-- src
 |---- const: it includes some constant variables
 |---- middlewares: it includes middlewares for you projects
